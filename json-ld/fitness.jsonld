@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gfit": "https://www.googleapis.com/fitness/v1/",
+    "Session": "schema:ExerciseAction",
+    "DataSource": "gfit:DataSource",
+    "DataPoint": "gfit:DataPoint",
+    "id": "schema:identifier",
+    "name": "schema:name",
+    "description": "schema:description",
+    "startTimeMillis": {
+      "@id": "schema:startTime",
+      "@type": "schema:DateTime"
+    },
+    "endTimeMillis": {
+      "@id": "schema:endTime",
+      "@type": "schema:DateTime"
+    },
+    "activityType": "schema:exerciseType",
+    "activeTimeMillis": "schema:duration",
+    "application": "schema:softwareApplication",
+    "device": "schema:device",
+    "manufacturer": "schema:manufacturer",
+    "model": "schema:model"
+  }
+}
