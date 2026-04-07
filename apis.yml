@@ -10,13 +10,13 @@ created: '2026-03-13'
 modified: '2026-03-13'
 specificationVersion: '0.18'
 tags:
-  - Fitness
-  - Health
-  - Wellness
-  - Google
-  - Wearables
   - Activity Tracking
+  - Fitness
+  - Google
+  - Health
   - Sessions
+  - Wearables
+  - Wellness
 apis:
   - name: Google Fit REST API v1
     description: >-
