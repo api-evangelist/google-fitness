@@ -36,7 +36,7 @@ common:
     url: https://developers.google.com/fit/rest/v1/get-started
   - type: Pricing
     url: https://developers.google.com/fit/terms
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/fitness.jsonld
 maintainers:
   - FN: Kin Lane
