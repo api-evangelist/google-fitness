@@ -1,59 +1,69 @@
 naftiko: 1.0.0-alpha2
 info:
   label: Google Fit REST API
-  description: The Google Fit REST API enables you to store and access health and wellness data in the fitness store. You
-    can manage data sources, datasets, sessions, and aggregate fitness data from apps on any platform.
+  description: 'Google Fit REST API. 9 operations. Lead operation: List data sources. Self-contained Naftiko capability covering
+    one Google Fitness business surface.'
   tags:
-  - Google
-  - Fitness
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Google Fitness
+  - Google Fit REST API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_FITNESS_API_KEY: GOOGLE_FITNESS_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: google-fitness
+    namespace: fitness
     baseUri: https://www.googleapis.com/fitness/v1
-    description: Google Fit REST API HTTP API.
-    authentication:
-      type: bearer
-      token: '{{GOOGLE_FITNESS_TOKEN}}'
+    description: Google Fit REST API business capability. Self-contained, no shared references.
     resources:
-    - name: users-userid-datasources
+    - name: users-userId-dataSources
       path: /users/{userId}/dataSources
       operations:
       - name: listdatasources
         method: GET
         description: List data sources
-        inputParameters:
-        - name: userId
-          in: path
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
       - name: createdatasource
         method: POST
         description: Create a data source
-        inputParameters:
-        - name: userId
-          in: path
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: users-userid-datasources-datasourceid
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: users-userId-dataSources-dataSourceId
       path: /users/{userId}/dataSources/{dataSourceId}
       operations:
       - name: getdatasource
         method: GET
         description: Get a data source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: userId
           in: path
@@ -63,17 +73,17 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: users-userid-datasources-datasourceid-datasets-d
+    - name: users-userId-dataSources-dataSourceId-datasets-datasetId
       path: /users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}
       operations:
       - name: getdataset
         method: GET
         description: Get a dataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: userId
           in: path
@@ -93,14 +103,14 @@ capability:
         - name: pageToken
           in: query
           type: string
+      - name: patchdataset
+        method: PATCH
+        description: Add data points to a dataset
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-      - name: patchdataset
-        method: PATCH
-        description: Add data points to a dataset
         inputParameters:
         - name: userId
           in: path
@@ -114,33 +124,43 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
-    - name: users-userid-dataset-aggregate
+          description: Request body (JSON).
+          required: false
+    - name: users-userId-dataset:aggregate
       path: /users/{userId}/dataset:aggregate
       operations:
       - name: aggregatedataset
         method: POST
         description: Aggregate data
-        inputParameters:
-        - name: userId
-          in: path
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: users-userid-sessions
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: users-userId-sessions
       path: /users/{userId}/sessions
       operations:
       - name: listsessions
         method: GET
         description: List sessions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: userId
           in: path
@@ -155,17 +175,17 @@ capability:
         - name: pageToken
           in: query
           type: string
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: users-userid-sessions-sessionid
+    - name: users-userId-sessions-sessionId
       path: /users/{userId}/sessions/{sessionId}
       operations:
       - name: updatesession
         method: PUT
         description: Update or insert a session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: userId
           in: path
@@ -175,14 +195,19 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
+          description: Request body (JSON).
+          required: false
       - name: deletesession
         method: DELETE
         description: Delete a session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: userId
           in: path
@@ -192,126 +217,131 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_FITNESS_API_KEY}}'
   exposes:
   - type: rest
+    namespace: fitness-rest
     port: 8080
-    namespace: google-fitness-rest
-    description: REST adapter for Google Fit REST API.
+    description: REST adapter for Google Fit REST API. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
     resources:
-    - path: /users/{userId}/dataSources
-      name: listdatasources
+    - path: /v1/users/{userid}/datasources
+      name: users-userid-datasources
+      description: REST surface for users-userId-dataSources.
       operations:
       - method: GET
         name: listdatasources
         description: List data sources
-        call: google-fitness.listdatasources
+        call: fitness.listdatasources
         with:
           userId: rest.userId
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/dataSources
-      name: createdatasource
-      operations:
       - method: POST
         name: createdatasource
         description: Create a data source
-        call: google-fitness.createdatasource
+        call: fitness.createdatasource
         with:
           userId: rest.userId
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/dataSources/{dataSourceId}
-      name: getdatasource
+    - path: /v1/users/{userid}/datasources/{datasourceid}
+      name: users-userid-datasources-datasourceid
+      description: REST surface for users-userId-dataSources-dataSourceId.
       operations:
       - method: GET
         name: getdatasource
         description: Get a data source
-        call: google-fitness.getdatasource
+        call: fitness.getdatasource
         with:
           userId: rest.userId
           dataSourceId: rest.dataSourceId
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}
-      name: getdataset
+    - path: /v1/users/{userid}/datasources/{datasourceid}/datasets/{datasetid}
+      name: users-userid-datasources-datasourceid-datasets-datasetid
+      description: REST surface for users-userId-dataSources-dataSourceId-datasets-datasetId.
       operations:
       - method: GET
         name: getdataset
         description: Get a dataset
-        call: google-fitness.getdataset
+        call: fitness.getdataset
         with:
           userId: rest.userId
           dataSourceId: rest.dataSourceId
           datasetId: rest.datasetId
+          limit: rest.limit
+          pageToken: rest.pageToken
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}
-      name: patchdataset
-      operations:
       - method: PATCH
         name: patchdataset
         description: Add data points to a dataset
-        call: google-fitness.patchdataset
+        call: fitness.patchdataset
         with:
           userId: rest.userId
           dataSourceId: rest.dataSourceId
           datasetId: rest.datasetId
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/dataset:aggregate
-      name: aggregatedataset
+    - path: /v1/users/{userid}/dataset-aggregate
+      name: users-userid-dataset-aggregate
+      description: REST surface for users-userId-dataset:aggregate.
       operations:
       - method: POST
         name: aggregatedataset
         description: Aggregate data
-        call: google-fitness.aggregatedataset
+        call: fitness.aggregatedataset
         with:
           userId: rest.userId
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/sessions
-      name: listsessions
+    - path: /v1/users/{userid}/sessions
+      name: users-userid-sessions
+      description: REST surface for users-userId-sessions.
       operations:
       - method: GET
         name: listsessions
         description: List sessions
-        call: google-fitness.listsessions
+        call: fitness.listsessions
         with:
           userId: rest.userId
+          startTime: rest.startTime
+          endTime: rest.endTime
+          pageToken: rest.pageToken
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/sessions/{sessionId}
-      name: updatesession
+    - path: /v1/users/{userid}/sessions/{sessionid}
+      name: users-userid-sessions-sessionid
+      description: REST surface for users-userId-sessions-sessionId.
       operations:
       - method: PUT
         name: updatesession
         description: Update or insert a session
-        call: google-fitness.updatesession
+        call: fitness.updatesession
         with:
           userId: rest.userId
           sessionId: rest.sessionId
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /users/{userId}/sessions/{sessionId}
-      name: deletesession
-      operations:
       - method: DELETE
         name: deletesession
         description: Delete a session
-        call: google-fitness.deletesession
+        call: fitness.deletesession
         with:
           userId: rest.userId
           sessionId: rest.sessionId
@@ -319,220 +349,133 @@ capability:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: fitness-mcp
     port: 9090
-    namespace: google-fitness-mcp
     transport: http
-    description: MCP adapter for Google Fit REST API for AI agent use.
+    description: MCP adapter for Google Fit REST API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
     tools:
-    - name: listdatasources
+    - name: list-data-sources
       description: List data sources
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-fitness.listdatasources
+      call: fitness.listdatasources
       with:
         userId: tools.userId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: createdatasource
+    - name: create-data-source
       description: Create a data source
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-fitness.createdatasource
+      call: fitness.createdatasource
       with:
         userId: tools.userId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: getdatasource
+    - name: get-data-source
       description: Get a data source
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-fitness.getdatasource
+      call: fitness.getdatasource
       with:
         userId: tools.userId
         dataSourceId: tools.dataSourceId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
-      - name: dataSourceId
-        type: string
-        description: dataSourceId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: getdataset
+    - name: get-dataset
       description: Get a dataset
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-fitness.getdataset
+      call: fitness.getdataset
       with:
         userId: tools.userId
         dataSourceId: tools.dataSourceId
         datasetId: tools.datasetId
         limit: tools.limit
         pageToken: tools.pageToken
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
-      - name: dataSourceId
-        type: string
-        description: dataSourceId
-        required: true
-      - name: datasetId
-        type: string
-        description: datasetId
-        required: true
-      - name: limit
-        type: integer
-        description: limit
-      - name: pageToken
-        type: string
-        description: pageToken
       outputParameters:
       - type: object
         mapping: $.
-    - name: patchdataset
+    - name: add-data-points-dataset
       description: Add data points to a dataset
       hints:
         readOnly: false
         destructive: false
-        idempotent: false
-      call: google-fitness.patchdataset
+        idempotent: true
+      call: fitness.patchdataset
       with:
         userId: tools.userId
         dataSourceId: tools.dataSourceId
         datasetId: tools.datasetId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
-      - name: dataSourceId
-        type: string
-        description: dataSourceId
-        required: true
-      - name: datasetId
-        type: string
-        description: datasetId
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: aggregatedataset
+    - name: aggregate-data
       description: Aggregate data
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-fitness.aggregatedataset
+      call: fitness.aggregatedataset
       with:
         userId: tools.userId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: listsessions
+    - name: list-sessions
       description: List sessions
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-fitness.listsessions
+      call: fitness.listsessions
       with:
         userId: tools.userId
         startTime: tools.startTime
         endTime: tools.endTime
         pageToken: tools.pageToken
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
-      - name: startTime
-        type: string
-        description: startTime
-      - name: endTime
-        type: string
-        description: endTime
-      - name: pageToken
-        type: string
-        description: pageToken
       outputParameters:
       - type: object
         mapping: $.
-    - name: updatesession
+    - name: update-insert-session
       description: Update or insert a session
       hints:
         readOnly: false
         destructive: false
         idempotent: true
-      call: google-fitness.updatesession
+      call: fitness.updatesession
       with:
         userId: tools.userId
         sessionId: tools.sessionId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
-      - name: sessionId
-        type: string
-        description: sessionId
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: deletesession
+    - name: delete-session
       description: Delete a session
       hints:
         readOnly: false
         destructive: true
         idempotent: true
-      call: google-fitness.deletesession
+      call: fitness.deletesession
       with:
         userId: tools.userId
         sessionId: tools.sessionId
-      inputParameters:
-      - name: userId
-        type: string
-        description: userId
-        required: true
-      - name: sessionId
-        type: string
-        description: sessionId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-binds:
-- namespace: env
-  keys:
-    GOOGLE_FITNESS_TOKEN: GOOGLE_FITNESS_TOKEN
