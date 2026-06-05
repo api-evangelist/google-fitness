@@ -1,24 +1,47 @@
-# Google Fit REST API
+# Google Fit REST (google-fitness)
 
 The Google Fit REST API enables you to store and access health and wellness data in the fitness store from apps on any platform. You can manage data sources, datasets, sessions, and aggregate fitness data for activities like steps, heart rate, sleep, and workouts.
+
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-fitness/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-fitness/refs/heads/main/apis.yml)
+
+## Tags
+
+- Activity Tracking
+- Fitness
+- Google
+- Health
+- Sessions
+- Wearables
+- Wellness
 
 ## Timestamps
 
 - **Created:** 2026-03-13
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-19
 
-## Artifacts
+## APIs
 
-- **OpenAPI**: [openapi/fitness.yml](openapi/fitness.yml) - OpenAPI 3.1.0 specification for the Google Fit REST API.
-- **JSON Schema**: [json-schema/fitness.json](json-schema/fitness.json) - JSON Schema (draft 2020-12) for Google Fit session resources.
-- **JSON-LD**: [json-ld/fitness.jsonld](json-ld/fitness.jsonld) - JSON-LD context mapping Google Fit resources to Schema.org vocabulary.
+### Google Fit REST API v1
 
-## Resources
+The Google Fit REST API provides access to fitness and health data stored in the Google Fit platform. Manage data sources, datasets, and sessions for activity tracking, body measurements, and location data.
+
+- **Human URL:** [https://developers.google.com/fit](https://developers.google.com/fit)
+- **Base URL:** `https://www.googleapis.com/fitness/v1`
+
+#### Properties
+
+- [OpenAPI](openapi/fitness.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/fitness.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/fitness.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/fitness.json) — [JSON Schema](https://json-schema.org/specification)
+
+## Common Properties
 
 - [Getting Started](https://developers.google.com/fit/rest/v1/get-started)
-- [API Reference](https://developers.google.com/fit/rest/v1/reference)
-- [Developer Documentation](https://developers.google.com/fit)
+- [Pricing](https://developers.google.com/fit/terms)
+- [JSON-LD](json-ld/fitness.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
 
 ## Maintainers
 
-- **Kin Lane** - kin@apievangelist.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
