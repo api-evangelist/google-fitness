@@ -1,0 +1,260 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Fit REST API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List data sources",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/dataSources",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Lists all data sources that are visible to the developer, using the OAuth scopes provided."
+    },
+    {
+      "info": {
+        "name": "Create a data source",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/dataSources",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a new data source."
+    },
+    {
+      "info": {
+        "name": "Get a data source",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/dataSources/:dataSourceId",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "dataSourceId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Returns the specified data source."
+    },
+    {
+      "info": {
+        "name": "Get a dataset",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/dataSources/:dataSourceId/datasets/:datasetId",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "dataSourceId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "datasetId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns a dataset containing all data points whose start and end times overlap with the specified range."
+    },
+    {
+      "info": {
+        "name": "Add data points to a dataset",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/dataSources/:dataSourceId/datasets/:datasetId",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "dataSourceId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "datasetId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Adds data points to a dataset. The dataset need not be previously created."
+    },
+    {
+      "info": {
+        "name": "Aggregate data",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/dataset:aggregate",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Aggregates data of a certain type or stream into buckets divided by a given type of boundary."
+    },
+    {
+      "info": {
+        "name": "List sessions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/sessions",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "startTime",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "endTime",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Lists sessions previously created."
+    },
+    {
+      "info": {
+        "name": "Update or insert a session",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/sessions/:sessionId",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "sessionId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Updates or inserts a given session."
+    },
+    {
+      "info": {
+        "name": "Delete a session",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://www.googleapis.com/fitness/v1/users/:userId/sessions/:sessionId",
+        "params": [
+          {
+            "name": "userId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "sessionId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Deletes a session specified by the given session ID."
+    }
+  ],
+  "bundled": true
+}

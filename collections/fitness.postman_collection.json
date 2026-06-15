@@ -1,0 +1,1139 @@
+{
+  "item": [
+    {
+      "id": "cd38a97d-6ed0-4e81-bcde-68b4613d4d13",
+      "name": "List data sources",
+      "request": {
+        "name": "List data sources",
+        "description": {
+          "content": "Lists all data sources that are visible to the developer, using the OAuth scopes provided.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "dataSources"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "me",
+              "key": "userId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "71feb955-ca3e-4227-be0d-7e24b261956c",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "dataSources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "me",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"dataSource\": [\n    {\n      \"dataStreamId\": \"string\",\n      \"name\": \"string\",\n      \"dataStreamName\": \"string\",\n      \"type\": \"derived\",\n      \"dataType\": {\n        \"name\": \"string\",\n        \"field\": [\n          {\n            \"name\": \"string\",\n            \"format\": \"integer\"\n          },\n          {\n            \"name\": \"string\",\n            \"format\": \"integerList\"\n          }\n        ]\n      },\n      \"device\": {\n        \"uid\": \"string\",\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"model\": \"string\",\n        \"manufacturer\": \"string\"\n      },\n      \"application\": {\n        \"name\": \"string\",\n        \"packageName\": \"string\",\n        \"version\": \"string\"\n      }\n    },\n    {\n      \"dataStreamId\": \"string\",\n      \"name\": \"string\",\n      \"dataStreamName\": \"string\",\n      \"type\": \"raw\",\n      \"dataType\": {\n        \"name\": \"string\",\n        \"field\": [\n          {\n            \"name\": \"string\",\n            \"format\": \"integer\"\n          },\n          {\n            \"name\": \"string\",\n            \"format\": \"integer\"\n          }\n        ]\n      },\n      \"device\": {\n        \"uid\": \"string\",\n        \"type\": \"string\",\n        \"version\": \"string\",\n        \"model\": \"string\",\n        \"manufacturer\": \"string\"\n      },\n      \"application\": {\n        \"name\": \"string\",\n        \"packageName\": \"string\",\n        \"version\": \"string\"\n      }\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9a2b510c-b24f-4970-b4e6-590381215d62",
+      "name": "Create a data source",
+      "request": {
+        "name": "Create a data source",
+        "description": {
+          "content": "Creates a new data source.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "dataSources"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "me",
+              "key": "userId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dataStreamId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataStreamName\": \"<string>\",\n  \"type\": \"<string>\",\n  \"dataType\": {\n    \"name\": \"<string>\",\n    \"field\": [\n      {\n        \"name\": \"<string>\",\n        \"format\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"format\": \"<string>\"\n      }\n    ]\n  },\n  \"device\": {\n    \"uid\": \"<string>\",\n    \"type\": \"<string>\",\n    \"version\": \"<string>\",\n    \"model\": \"<string>\",\n    \"manufacturer\": \"<string>\"\n  },\n  \"application\": {\n    \"name\": \"<string>\",\n    \"packageName\": \"<string>\",\n    \"version\": \"<string>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "6528eead-310e-4f51-808f-cc2514701f8b",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "dataSources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "me",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataStreamId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataStreamName\": \"<string>\",\n  \"type\": \"<string>\",\n  \"dataType\": {\n    \"name\": \"<string>\",\n    \"field\": [\n      {\n        \"name\": \"<string>\",\n        \"format\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"format\": \"<string>\"\n      }\n    ]\n  },\n  \"device\": {\n    \"uid\": \"<string>\",\n    \"type\": \"<string>\",\n    \"version\": \"<string>\",\n    \"model\": \"<string>\",\n    \"manufacturer\": \"<string>\"\n  },\n  \"application\": {\n    \"name\": \"<string>\",\n    \"packageName\": \"<string>\",\n    \"version\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"dataStreamId\": \"string\",\n  \"name\": \"string\",\n  \"dataStreamName\": \"string\",\n  \"type\": \"raw\",\n  \"dataType\": {\n    \"name\": \"string\",\n    \"field\": [\n      {\n        \"name\": \"string\",\n        \"format\": \"integer\"\n      },\n      {\n        \"name\": \"string\",\n        \"format\": \"map\"\n      }\n    ]\n  },\n  \"device\": {\n    \"uid\": \"string\",\n    \"type\": \"string\",\n    \"version\": \"string\",\n    \"model\": \"string\",\n    \"manufacturer\": \"string\"\n  },\n  \"application\": {\n    \"name\": \"string\",\n    \"packageName\": \"string\",\n    \"version\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "15b4d180-0c02-42bc-b492-c66a88870e4f",
+      "name": "Get a data source",
+      "request": {
+        "name": "Get a data source",
+        "description": {
+          "content": "Returns the specified data source.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "dataSources",
+            ":dataSourceId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "dataSourceId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "3ae2b331-a455-46a5-aacd-5b90c81e85f0",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "dataSources",
+                ":dataSourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"dataStreamId\": \"string\",\n  \"name\": \"string\",\n  \"dataStreamName\": \"string\",\n  \"type\": \"raw\",\n  \"dataType\": {\n    \"name\": \"string\",\n    \"field\": [\n      {\n        \"name\": \"string\",\n        \"format\": \"integer\"\n      },\n      {\n        \"name\": \"string\",\n        \"format\": \"map\"\n      }\n    ]\n  },\n  \"device\": {\n    \"uid\": \"string\",\n    \"type\": \"string\",\n    \"version\": \"string\",\n    \"model\": \"string\",\n    \"manufacturer\": \"string\"\n  },\n  \"application\": {\n    \"name\": \"string\",\n    \"packageName\": \"string\",\n    \"version\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "775dad63-be45-45e6-85c5-0143ea3edc14",
+      "name": "Get a dataset",
+      "request": {
+        "name": "Get a dataset",
+        "description": {
+          "content": "Returns a dataset containing all data points whose start and end times overlap with the specified range.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "dataSources",
+            ":dataSourceId",
+            "datasets",
+            ":datasetId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "dataSourceId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "datasetId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5986aaee-f73d-452e-8ddf-b7de51ca1611",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "dataSources",
+                ":dataSourceId",
+                "datasets",
+                ":datasetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"dataSourceId\": \"string\",\n  \"minStartTimeNs\": \"string\",\n  \"maxEndTimeNs\": \"string\",\n  \"point\": [\n    {\n      \"startTimeNanos\": \"string\",\n      \"endTimeNanos\": \"string\",\n      \"dataTypeName\": \"string\",\n      \"value\": [\n        {\n          \"intVal\": 5681,\n          \"fpVal\": 6030.292319780882,\n          \"stringVal\": \"string\"\n        },\n        {\n          \"intVal\": 3015,\n          \"fpVal\": 6212.083216617481,\n          \"stringVal\": \"string\"\n        }\n      ]\n    },\n    {\n      \"startTimeNanos\": \"string\",\n      \"endTimeNanos\": \"string\",\n      \"dataTypeName\": \"string\",\n      \"value\": [\n        {\n          \"intVal\": 1710,\n          \"fpVal\": 5475.9583380557,\n          \"stringVal\": \"string\"\n        },\n        {\n          \"intVal\": 2769,\n          \"fpVal\": 6741.895362430186,\n          \"stringVal\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d2e98d28-c5e1-4f39-87e1-0b53023a7948",
+      "name": "Add data points to a dataset",
+      "request": {
+        "name": "Add data points to a dataset",
+        "description": {
+          "content": "Adds data points to a dataset. The dataset need not be previously created.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "dataSources",
+            ":dataSourceId",
+            "datasets",
+            ":datasetId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "dataSourceId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "datasetId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"dataSourceId\": \"<string>\",\n  \"minStartTimeNs\": \"<string>\",\n  \"maxEndTimeNs\": \"<string>\",\n  \"point\": [\n    {\n      \"startTimeNanos\": \"<string>\",\n      \"endTimeNanos\": \"<string>\",\n      \"dataTypeName\": \"<string>\",\n      \"value\": [\n        {\n          \"intVal\": \"<integer>\",\n          \"fpVal\": \"<number>\",\n          \"stringVal\": \"<string>\",\n          \"mapVal\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        },\n        {\n          \"intVal\": \"<integer>\",\n          \"fpVal\": \"<number>\",\n          \"stringVal\": \"<string>\",\n          \"mapVal\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        }\n      ]\n    },\n    {\n      \"startTimeNanos\": \"<string>\",\n      \"endTimeNanos\": \"<string>\",\n      \"dataTypeName\": \"<string>\",\n      \"value\": [\n        {\n          \"intVal\": \"<integer>\",\n          \"fpVal\": \"<number>\",\n          \"stringVal\": \"<string>\",\n          \"mapVal\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        },\n        {\n          \"intVal\": \"<integer>\",\n          \"fpVal\": \"<number>\",\n          \"stringVal\": \"<string>\",\n          \"mapVal\": [\n            \"<object>\",\n            \"<object>\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "8a970d2f-92dd-42c4-8938-14a094407052",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "dataSources",
+                ":dataSourceId",
+                "datasets",
+                ":datasetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataSourceId\": \"<string>\",\n  \"minStartTimeNs\": \"<string>\",\n  \"maxEndTimeNs\": \"<string>\",\n  \"point\": [\n    {\n      \"startTimeNanos\": \"string\",\n      \"endTimeNanos\": \"string\",\n      \"dataTypeName\": \"string\",\n      \"value\": [\n        {\n          \"intVal\": 3881,\n          \"fpVal\": 1782.3434322903786,\n          \"stringVal\": \"string\"\n        },\n        {\n          \"intVal\": 6760,\n          \"fpVal\": 4849.131615727511,\n          \"stringVal\": \"string\"\n        }\n      ]\n    },\n    {\n      \"startTimeNanos\": \"string\",\n      \"endTimeNanos\": \"string\",\n      \"dataTypeName\": \"string\",\n      \"value\": [\n        {\n          \"intVal\": 4520,\n          \"fpVal\": 466.7531470150721,\n          \"stringVal\": \"string\"\n        },\n        {\n          \"intVal\": 862,\n          \"fpVal\": 1040.0867999056263,\n          \"stringVal\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c8e1eb0d-40da-40ce-b6f8-e6ab536b1fbc",
+      "name": "Aggregate data",
+      "request": {
+        "name": "Aggregate data",
+        "description": {
+          "content": "Aggregates data of a certain type or stream into buckets divided by a given type of boundary.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "dataset:aggregate"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"aggregateBy\": [\n    {\n      \"dataTypeName\": \"<string>\",\n      \"dataSourceId\": \"<string>\"\n    },\n    {\n      \"dataTypeName\": \"<string>\",\n      \"dataSourceId\": \"<string>\"\n    }\n  ],\n  \"bucketByTime\": {\n    \"durationMillis\": \"<string>\"\n  },\n  \"startTimeMillis\": \"<string>\",\n  \"endTimeMillis\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "2936bedc-a63d-4e06-8236-3b5e213cc2a7",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "dataset:aggregate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aggregateBy\": [\n    {\n      \"dataTypeName\": \"<string>\",\n      \"dataSourceId\": \"<string>\"\n    },\n    {\n      \"dataTypeName\": \"<string>\",\n      \"dataSourceId\": \"<string>\"\n    }\n  ],\n  \"bucketByTime\": {\n    \"durationMillis\": \"<string>\"\n  },\n  \"startTimeMillis\": \"<string>\",\n  \"endTimeMillis\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "eb017457-7266-4024-87cd-4f46bef49327",
+      "name": "List sessions",
+      "request": {
+        "name": "List sessions",
+        "description": {
+          "content": "Lists sessions previously created.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "sessions"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "startTime",
+              "value": "<dateTime>"
+            },
+            {
+              "disabled": false,
+              "key": "endTime",
+              "value": "<dateTime>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "84ed7ebe-8716-4685-a20a-57537bf5ff06",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "startTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "endTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"session\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"startTimeMillis\": \"string\",\n      \"endTimeMillis\": \"string\",\n      \"modifiedTimeMillis\": \"string\",\n      \"application\": {\n        \"name\": \"string\",\n        \"packageName\": \"string\"\n      },\n      \"activityType\": 9640,\n      \"activeTimeMillis\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"startTimeMillis\": \"string\",\n      \"endTimeMillis\": \"string\",\n      \"modifiedTimeMillis\": \"string\",\n      \"application\": {\n        \"name\": \"string\",\n        \"packageName\": \"string\"\n      },\n      \"activityType\": 6298,\n      \"activeTimeMillis\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "fe340d37-ed51-4c3a-b08a-f006ac9acc97",
+      "name": "Update or insert a session",
+      "request": {
+        "name": "Update or insert a session",
+        "description": {
+          "content": "Updates or inserts a given session.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "sessions",
+            ":sessionId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "sessionId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"startTimeMillis\": \"<string>\",\n  \"endTimeMillis\": \"<string>\",\n  \"modifiedTimeMillis\": \"<string>\",\n  \"application\": {\n    \"name\": \"<string>\",\n    \"packageName\": \"<string>\"\n  },\n  \"activityType\": \"<integer>\",\n  \"activeTimeMillis\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "84568853-5ed4-4ba2-beec-8a759cd388b0",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "sessions",
+                ":sessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"startTimeMillis\": \"<string>\",\n  \"endTimeMillis\": \"<string>\",\n  \"modifiedTimeMillis\": \"<string>\",\n  \"application\": {\n    \"name\": \"<string>\",\n    \"packageName\": \"<string>\"\n  },\n  \"activityType\": \"<integer>\",\n  \"activeTimeMillis\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f94825c1-174f-4a8c-916f-97ecd1b441e0",
+      "name": "Delete a session",
+      "request": {
+        "name": "Delete a session",
+        "description": {
+          "content": "Deletes a session specified by the given session ID.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "users",
+            ":userId",
+            "sessions",
+            ":sessionId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "userId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "sessionId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2b5e941f-c104-4798-8131-62cf2afd2def",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "sessions",
+                ":sessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.googleapis.com/fitness/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.activity.write https://www.googleapis.com/auth/fitness.body.read https://www.googleapis.com/auth/fitness.body.write https://www.googleapis.com/auth/fitness.location.read https://www.googleapis.com/auth/fitness.location.write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "169ab43c-da79-423a-830f-3b641fdc8a4c",
+    "name": "Google Fit REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Fit REST API enables you to store and access health and wellness data in the fitness store. You can manage data sources, datasets, sessions, and aggregate fitness data from apps on any platform.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}
