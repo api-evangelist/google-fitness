@@ -30,6 +30,12 @@ apis:
         url: json-schema/fitness.json
     overlays: []
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-fitness-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-fitness-domain-security.yml
+  - type: Authentication
+    url: authentication/google-fitness-authentication.yml
   - type: OAuthScopes
     url: scopes/google-fitness-scopes.yml
   - type: GettingStarted
