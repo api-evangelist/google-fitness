@@ -30,6 +30,8 @@ apis:
         url: json-schema/fitness.json
     overlays: []
 common:
+  - type: OAuthScopes
+    url: scopes/google-fitness-scopes.yml
   - type: GettingStarted
     url: https://developers.google.com/fit/rest/v1/get-started
   - type: Pricing
