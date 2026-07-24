@@ -1,31 +1,30 @@
 openapi: 3.1.0
 info:
-  title: Google Fit REST API
-  description: >-
-    The Google Fit REST API enables you to store and access health and wellness
-    data in the fitness store. You can manage data sources, datasets, sessions,
-    and aggregate fitness data from apps on any platform.
+  title: Google Fit REST Users API
+  description: The Google Fit REST API enables you to store and access health and wellness data in the fitness store. You can manage data sources, datasets, sessions, and aggregate fitness data from apps on any platform.
   version: v1
   contact:
     name: Google
     url: https://developers.google.com/fit
 servers:
-  - url: https://www.googleapis.com/fitness/v1
+- url: https://www.googleapis.com/fitness/v1
+security:
+- oauth2: []
+tags:
+- name: Users
 paths:
   /users/{userId}/dataSources:
     get:
       operationId: listDataSources
       summary: List data sources
-      description: >-
-        Lists all data sources that are visible to the developer, using the
-        OAuth scopes provided.
+      description: Lists all data sources that are visible to the developer, using the OAuth scopes provided.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-            default: me
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: me
       responses:
         '200':
           description: Successful response
@@ -33,17 +32,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListDataSourcesResponse'
+      tags:
+      - Users
     post:
       operationId: createDataSource
       summary: Create a data source
       description: Creates a new data source.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-            default: me
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: me
       requestBody:
         content:
           application/json:
@@ -56,22 +57,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSource'
+      tags:
+      - Users
   /users/{userId}/dataSources/{dataSourceId}:
     get:
       operationId: getDataSource
       summary: Get a data source
       description: Returns the specified data source.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: dataSourceId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dataSourceId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -79,37 +82,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSource'
+      tags:
+      - Users
   /users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}:
     get:
       operationId: getDataset
       summary: Get a dataset
-      description: >-
-        Returns a dataset containing all data points whose start and end times
-        overlap with the specified range.
+      description: Returns a dataset containing all data points whose start and end times overlap with the specified range.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: dataSourceId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: datasetId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: limit
-          in: query
-          schema:
-            type: integer
-        - name: pageToken
-          in: query
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dataSourceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: datasetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -117,28 +120,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dataset'
+      tags:
+      - Users
     patch:
       operationId: patchDataset
       summary: Add data points to a dataset
-      description: >-
-        Adds data points to a dataset. The dataset need not be previously
-        created.
+      description: Adds data points to a dataset. The dataset need not be previously created.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: dataSourceId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: datasetId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dataSourceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: datasetId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -147,19 +150,19 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Users
   /users/{userId}/dataset:aggregate:
     post:
       operationId: aggregateDataset
       summary: Aggregate data
-      description: >-
-        Aggregates data of a certain type or stream into buckets divided by a
-        given type of boundary.
+      description: Aggregates data of a certain type or stream into buckets divided by a given type of boundary.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -187,31 +190,33 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Users
   /users/{userId}/sessions:
     get:
       operationId: listSessions
       summary: List sessions
       description: Lists sessions previously created.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: startTime
-          in: query
-          schema:
-            type: string
-            format: date-time
-        - name: endTime
-          in: query
-          schema:
-            type: string
-            format: date-time
-        - name: pageToken
-          in: query
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: startTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: endTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: pageToken
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
@@ -219,22 +224,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListSessionsResponse'
+      tags:
+      - Users
   /users/{userId}/sessions/{sessionId}:
     put:
       operationId: updateSession
       summary: Update or insert a session
       description: Updates or inserts a given session.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: sessionId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -243,26 +250,63 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+      - Users
     delete:
       operationId: deleteSession
       summary: Delete a session
       description: Deletes a session specified by the given session ID.
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: sessionId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response
+      tags:
+      - Users
 components:
   schemas:
+    ListSessionsResponse:
+      type: object
+      properties:
+        session:
+          type: array
+          items:
+            $ref: '#/components/schemas/Session'
+        nextPageToken:
+          type: string
+    DataPoint:
+      type: object
+      properties:
+        startTimeNanos:
+          type: string
+        endTimeNanos:
+          type: string
+        dataTypeName:
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              intVal:
+                type: integer
+              fpVal:
+                type: number
+              stringVal:
+                type: string
+              mapVal:
+                type: array
+                items:
+                  type: object
     DataSource:
       type: object
       properties:
@@ -275,8 +319,8 @@ components:
         type:
           type: string
           enum:
-            - raw
-            - derived
+          - raw
+          - derived
         dataType:
           type: object
           properties:
@@ -292,13 +336,13 @@ components:
                   format:
                     type: string
                     enum:
-                      - integer
-                      - floatPoint
-                      - string
-                      - map
-                      - integerList
-                      - floatList
-                      - blob
+                    - integer
+                    - floatPoint
+                    - string
+                    - map
+                    - integerList
+                    - floatList
+                    - blob
         device:
           type: object
           properties:
@@ -336,30 +380,13 @@ components:
             $ref: '#/components/schemas/DataPoint'
         nextPageToken:
           type: string
-    DataPoint:
+    ListDataSourcesResponse:
       type: object
       properties:
-        startTimeNanos:
-          type: string
-        endTimeNanos:
-          type: string
-        dataTypeName:
-          type: string
-        value:
+        dataSource:
           type: array
           items:
-            type: object
-            properties:
-              intVal:
-                type: integer
-              fpVal:
-                type: number
-              stringVal:
-                type: string
-              mapVal:
-                type: array
-                items:
-                  type: object
+            $ref: '#/components/schemas/DataSource'
     Session:
       type: object
       properties:
@@ -386,22 +413,6 @@ components:
           type: integer
         activeTimeMillis:
           type: string
-    ListDataSourcesResponse:
-      type: object
-      properties:
-        dataSource:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSource'
-    ListSessionsResponse:
-      type: object
-      properties:
-        session:
-          type: array
-          items:
-            $ref: '#/components/schemas/Session'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
@@ -416,5 +427,3 @@ components:
             https://www.googleapis.com/auth/fitness.body.write: Add body sensor information in Google Fit
             https://www.googleapis.com/auth/fitness.location.read: View your stored location data in Google Fit
             https://www.googleapis.com/auth/fitness.location.write: Add to your location data in Google Fit
-security:
-  - oauth2: []
