@@ -3,7 +3,20 @@ description: >-
   The Google Fit REST API enables you to store and access health and wellness data in the fitness store from apps on any
   platform. You can manage data sources, datasets, sessions, and aggregate fitness data for activities like steps, heart
   rate, sleep, and workouts.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-fitness.png
 url: https://raw.githubusercontent.com/api-evangelist/google-fitness/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -17,18 +30,18 @@ tags:
   - Wearables
   - Wellness
 apis:
-  - name: Google Fit REST API v1
-    description: >-
-      The Google Fit REST API provides access to fitness and health data stored in the Google Fit platform. Manage data
-      sources, datasets, and sessions for activity tracking, body measurements, and location data.
-    humanURL: https://developers.google.com/fit
-    baseURL: https://www.googleapis.com/fitness/v1
-    properties:
-      - type: OpenAPI
-        url: openapi/fitness.yml
-      - type: JSONSchema
-        url: json-schema/fitness.json
-    overlays: []
+- aid: google-fitness:google-fitness-users-api
+  name: Google Fit REST Users API
+  description: The Users API from Google Fit REST — 6 operation(s) for users.
+  humanURL: https://developers.google.com/fit
+  baseURL: https://www.googleapis.com/fitness/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/google-fitness-users-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/fitness.json
 common:
   - type: AgenticAccess
     url: agentic-access/google-fitness-agentic-access.yml
