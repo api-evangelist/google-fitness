@@ -1,0 +1,14 @@
+{
+  "provider": "google-fitness",
+  "sources": [
+    "google-fitness-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-fitness-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
