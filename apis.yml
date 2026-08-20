@@ -36,6 +36,8 @@ apis:
   humanURL: https://developers.google.com/fit
   baseURL: https://www.googleapis.com/fitness/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
