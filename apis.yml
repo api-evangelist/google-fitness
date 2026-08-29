@@ -3,6 +3,18 @@ description: >-
   The Google Fit REST API enables you to store and access health and wellness data in the fitness store from apps on any
   platform. You can manage data sources, datasets, sessions, and aggregate fitness data for activities like steps, heart
   rate, sleep, and workouts.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
