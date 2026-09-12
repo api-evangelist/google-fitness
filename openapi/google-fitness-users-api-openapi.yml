@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Fit REST Users API
   description: The Google Fit REST API enables you to store and access health and wellness data in the fitness store. You can manage data sources, datasets, sessions, and aggregate fitness data from apps on any platform.
@@ -274,13 +274,19 @@ paths:
       - Users
 components:
   schemas:
-    ListSessionsResponse:
+    Dataset:
       type: object
       properties:
-        session:
+        dataSourceId:
+          type: string
+        minStartTimeNs:
+          type: string
+        maxEndTimeNs:
+          type: string
+        point:
           type: array
           items:
-            $ref: '#/components/schemas/Session'
+            $ref: '#/components/schemas/DataPoint'
         nextPageToken:
           type: string
     DataPoint:
@@ -307,6 +313,39 @@ components:
                 type: array
                 items:
                   type: object
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        startTimeMillis:
+          type: string
+        endTimeMillis:
+          type: string
+        modifiedTimeMillis:
+          type: string
+        application:
+          type: object
+          properties:
+            name:
+              type: string
+            packageName:
+              type: string
+        activityType:
+          type: integer
+        activeTimeMillis:
+          type: string
+    ListDataSourcesResponse:
+      type: object
+      properties:
+        dataSource:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSource'
     DataSource:
       type: object
       properties:
@@ -365,53 +404,14 @@ components:
               type: string
             version:
               type: string
-    Dataset:
+    ListSessionsResponse:
       type: object
       properties:
-        dataSourceId:
-          type: string
-        minStartTimeNs:
-          type: string
-        maxEndTimeNs:
-          type: string
-        point:
+        session:
           type: array
           items:
-            $ref: '#/components/schemas/DataPoint'
+            $ref: '#/components/schemas/Session'
         nextPageToken:
-          type: string
-    ListDataSourcesResponse:
-      type: object
-      properties:
-        dataSource:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSource'
-    Session:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        startTimeMillis:
-          type: string
-        endTimeMillis:
-          type: string
-        modifiedTimeMillis:
-          type: string
-        application:
-          type: object
-          properties:
-            name:
-              type: string
-            packageName:
-              type: string
-        activityType:
-          type: integer
-        activeTimeMillis:
           type: string
   securitySchemes:
     oauth2:
