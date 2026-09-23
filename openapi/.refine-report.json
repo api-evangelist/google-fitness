@@ -1,7 +1,7 @@
 {
   "provider": "google-fitness",
   "sources": [
-    "google-fitness-users-api-openapi.yml"
+    "_original/fitness.yml"
   ],
   "outputs": [
     "google-fitness-users-api-openapi.yml"
@@ -10,8 +10,21 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-fitness-users-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fitness.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "fitness.yml: tagged paths GET /users/{userId}/dataSources -> Users",
+    "fitness.yml: tagged paths POST /users/{userId}/dataSources -> Users",
+    "fitness.yml: tagged paths GET /users/{userId}/dataSources/{dataSourceId} -> Users",
+    "fitness.yml: tagged paths GET /users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId} -> Users",
+    "fitness.yml: tagged paths PATCH /users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId} -> Users",
+    "fitness.yml: tagged paths POST /users/{userId}/dataset:aggregate -> Users",
+    "fitness.yml: tagged paths GET /users/{userId}/sessions -> Users",
+    "fitness.yml: tagged paths PUT /users/{userId}/sessions/{sessionId} -> Users",
+    "fitness.yml: tagged paths DELETE /users/{userId}/sessions/{sessionId} -> Users",
+    "fitness.yml: declared missing tag: Users",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-fitness-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
