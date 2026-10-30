@@ -1,4 +1,4 @@
-# Google Fit REST (google-fitness)
+# Google Fit REST
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,48 +64,108 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
+
 The Google Fit REST API enables you to store and access health and wellness data in the fitness store from apps on any platform. You can manage data sources, datasets, sessions, and aggregate fitness data for activities like steps, heart rate, sleep, and workouts.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-fitness/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-fitness/refs/heads/main/apis.yml)
+**Areas:** Activity Tracking · Fitness · Google · Health · Sessions · Wearables · Wellness
 
-## Tags
+## Google Fit REST on APIs.io (historical record)
 
-- Activity Tracking
-- Fitness
-- Google
-- Health
-- Sessions
-- Wearables
-- Wellness
+Everything profiled for Google Fit REST is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-fitness/](https://apis.io/providers/google-fitness/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+- [Google Fit REST Users API](https://apis.io/apis/google-fitness/google-fitness-users-api/) — The Users API from Google Fit REST — 6 operation(s) for users.
 
-## APIs
+### Published properties
 
-### Google Fit REST API v1
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Google Fit REST API provides access to fitness and health data stored in the Google Fit platform. Manage data sources, datasets, and sessions for activity tracking, body measurements, and location data.
+#### Agentic access (1)
 
-- **Human URL:** [https://developers.google.com/fit](https://developers.google.com/fit)
-- **Base URL:** `https://www.googleapis.com/fitness/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Properties
+- [Google Fitness Agentic Access](https://apis.io/agentic-access/google-fitness/google-fitness-agentic-access/)
 
-- [OpenAPI](openapi/fitness.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fitness.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fitness.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/fitness.json) — [JSON Schema](https://json-schema.org/specification)
+#### JSON Schema (1)
 
-## Common Properties
+The data models the API reads and writes.
 
-- [Getting Started](https://developers.google.com/fit/rest/v1/get-started)
+- [Google Fit Session](https://apis.io/schemas/google-fitness/fitness/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Fitness Context](https://apis.io/jsonld/google-fitness/fitness/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Google Fit REST API](https://apis.io/collections/google-fitness/open-fitness/)
+- [Google Fit REST Users API](https://apis.io/collections/google-fitness/open-google-fitness-users-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Fit REST — jsonschema rules](https://apis.io/rules/google-fitness/google-fitness-jsonschema-spectral-rules/)
+- [Google Fit REST API Rules](https://apis.io/rules/google-fitness/google-fitness-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Fitness Authentication](https://apis.io/security/google-fitness/google-fitness-authentication/)
+- [Google Fitness Domain Security](https://apis.io/security/google-fitness/google-fitness-domain-security/)
+- [Google Fitness Vulnerability Disclosure](https://apis.io/security/google-fitness/google-fitness-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Google Fitness Scopes](https://apis.io/scopes/google-fitness/google-fitness-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Fitness Plans Pricing](https://apis.io/plans/google-fitness/google-fitness-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Fitness Rate Limits](https://apis.io/rate-limits/google-fitness/google-fitness-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Fitness Finops](https://apis.io/finops/google-fitness/google-fitness-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://developers.google.com/fit)
+- [Getting started](https://developers.google.com/fit/rest/v1/get-started)
 - [Pricing](https://developers.google.com/fit/terms)
-- [JSON-LD](json-ld/fitness.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Fit REST: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-fitness/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
